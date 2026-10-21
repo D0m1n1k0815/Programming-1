@@ -53,7 +53,3 @@ while True:
 
     # F. Limit the framerate (to 60 frames per second)
     clock.tick(60)
-
-# 5. Exit the program cleanly
-pygame.quit()
-sys.exit()

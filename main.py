@@ -17,6 +17,13 @@ clock = pygame.time.Clock()
 # 4. The Main Game Loop
 while True:
 
+    # A. Ereignisse verarbeiten (DAS HAT GEFEHLT!)
+    # Diese Schleife holt alle angestauten Nachrichten vom Betriebssystem ab
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT: # Wenn jemand auf das X des Fensters klickt
+            pygame.quit()
+            sys.exit()
+
     # B. Capture keyboard input and move the object
     keys = pygame.key.get_pressed()
     
@@ -24,11 +31,9 @@ while True:
         player_x -= 5
 
     # C. Draw the background
-    # Important: The background must be redrawn every frame, otherwise the object will leave a "trail" behind it.
     screen.fill((30, 30, 30))
 
     # D. Draw the simple object (a rectangle)
-    # pygame.draw.rect needs: (Where to draw?, Color, (x, y, width, height))
     pygame.draw.rect(screen, (200, 50, 50), (player_x, 200, 40, 40))
 
     # E. Update the screen to show the drawings
@@ -36,7 +41,3 @@ while True:
 
     # F. Limit the framerate (to 60 frames per second)
     clock.tick(60)
-
-# 5. Exit the program cleanly
-pygame.quit()
-sys.exit()
