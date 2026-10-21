@@ -1,3 +1,4 @@
+# Import the Pygame library for game development and the sys module to exit the program cleanly
 import pygame
 import sys
 
