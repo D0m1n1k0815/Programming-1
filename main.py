@@ -17,10 +17,9 @@ clock = pygame.time.Clock()
 # 4. The Main Game Loop
 while True:
 
-    # A. Ereignisse verarbeiten (DAS HAT GEFEHLT!)
-    # Diese Schleife holt alle angestauten Nachrichten vom Betriebssystem ab
+        # A. Handle events (Direct exit instead of running = False)
     for event in pygame.event.get():
-        if event.type == pygame.QUIT: # Wenn jemand auf das X des Fensters klickt
+        if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
 
