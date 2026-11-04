@@ -26,6 +26,7 @@ sprint_speed = 10
 player_hp = 100
 damage_taken = 10
 
+getting_dmg = False
 
 # Create a clock to limit the framerate
 clock = pygame.time.Clock()
@@ -49,10 +50,15 @@ while True:
         player_x += speed
 
     if keys[pygame.K_SPACE]:
-        player_hp -= damage_taken
-        if player_hp < 0:
-            player_hp = 0
-        print("Hit! HP left:", player_hp)
+        if not getting_dmg:
+            player_hp -= damage_taken
+            if player_hp < 0:
+                player_hp = 0
+            print("Hit! HP left:", player_hp)
+        getting_dmg = True
+
+    else:
+        getting_dmg = False
 
     if keys[pygame.K_LSHIFT]:
         speed = sprint_speed
