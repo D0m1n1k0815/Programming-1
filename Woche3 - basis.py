@@ -1,24 +1,22 @@
 import random
+import pygame
 
-player_hp = 50
-turn = 1
+clock = pygame.time.Clock()
 
-# Loop: Repeat as long as the condition is True
-while player_hp > 0:
-    print("Turn:", turn, "| HP:", player_hp)
-    
-    # Generate random damage between 0 and 20
-    damage = random.randint(0, 20)
-    
-    # Condition: Check the amount of damage
-    if damage > 15:
-        print("Critical hit! Lost", damage, "HP.")
-    elif damage > 0:
-        print("Normal hit. Lost", damage, "HP.")
-    else:
-        print("Dodged!")
-        
-    player_hp -= damage
-    turn += 1
 
-print("Game Over. You survived", turn, "turns.")
+obstacles = []
+for i in range(8): 
+    obs_width = random.randint(30, 60)
+    obs_height = random.randint(30, 60)
+    obs_x = random.randint(150, 700)
+    obs_y = random.randint(-600, -50) # Start off-screen at the top
+    # pygame.Rect creates a hitbox: (x, y, width, height)
+    obstacles.append(pygame.Rect(obs_x, obs_y, obs_width, obs_height))
+
+while True:
+    for obs in obstacles:
+        obs.y += 10
+        print(obs.y, end=" ")
+    print()
+
+    clock.tick(1)

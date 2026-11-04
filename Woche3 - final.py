@@ -105,7 +105,7 @@ while True:
         pygame.quit()
         sys.exit()
 
-    if player_x >= window_width - 50: # Reached the green goal area
+    if player_x >= window_width - 50 - player_hp: # Reached the green goal area
         print("You survived and reached the goal!")
         pygame.quit()
         sys.exit()
