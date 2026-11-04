@@ -66,6 +66,7 @@ while True:
 
         #Collision Detection
         if player_rect.colliderect(obs):
+            continue
             #add Code here
 
 
@@ -75,7 +76,7 @@ while True:
     pygame.draw.rect(screen, player_color, (player_x, player_y, player_hp, 40))
     
     for obs in obstacles:
-        pygame.draw.rect(screen, player_color, obs)
+        pygame.draw.rect(screen, (150, 150, 150), obs)
     pygame.display.flip()
 
     clock.tick(60)
