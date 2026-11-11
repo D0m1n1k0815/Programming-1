@@ -1,6 +1,12 @@
 import random
 import time
 
+player_armor = 5
+player_hp = 50
+
+print("Start-HP =", player_hp, "| Armor =", player_armor)
+print("-" * 40)
+
 def take_damage(current_hp, incoming_damage, armor):
   final_damage = incoming_damage - armor
 
@@ -17,12 +23,6 @@ def take_damage(current_hp, incoming_damage, armor):
 
   return current_hp
 
-
-player_armor = 5
-player_hp = 50
-
-print("Start-HP =", player_hp, "| Armor =", player_armor)
-print("-" * 40)
 
 while player_hp > 0:
   incoming_damage = random.randint(10, 25)
