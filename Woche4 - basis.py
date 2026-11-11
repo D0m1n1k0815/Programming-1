@@ -1,16 +1,28 @@
-# Defining the function
-def calculate_damage(incoming_damage, armor_value):
-    final_damage = incoming_damage - armor_value
-    
-    if final_damage < 0:
-        final_damage = 0 # Armor fully blocked the attack
-        
-    return final_damage
+import random
+import time
 
-# Calling the function
 player_armor = 5
-hit_1 = calculate_damage(20, player_armor)
-hit_2 = calculate_damage(3, player_armor)
+player_hp = 50
 
-print("Damage taken from hit 1:", hit_1)
-print("Damage taken from hit 2:", hit_2)
+print("Start-HP =", player_hp, "| Armor =", player_armor)
+print("-" * 40)
+
+while player_hp > 0:
+  incoming_damage = random.randint(10, 25)
+
+  final_damage = incoming_damage - player_armor
+
+  if final_damage < 0:
+    final_damage = 0 
+
+  player_hp -= final_damage
+
+  if player_hp < 0:
+    player_hp = 0
+
+  print("Incoming damage:", incoming_damage," damage | Blocked with Armor:", player_armor, " | Damage recieved:", final_damage)
+  print(f" Player HP:" ,player_hp)
+
+  time.sleep(1)
+
+print("Game Over!")
